@@ -64,9 +64,7 @@ def func(y, x, type):
 
 for x in range(d-7):
     for y in range(c-7):
-
         func(y, x, "B")
-
         inputData = []
         inputData.extend(inputDataCopy)
 
