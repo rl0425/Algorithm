@@ -1,3 +1,5 @@
+# pypy o
+
 a, b = map(int, input().split())
 
 inputData=list(map(int,input().split()))
