@@ -1,10 +1,13 @@
 a = int(input())
 
-list = []
+alist = []
 
 for x in range(a):
     b = input()
-    list.append(b)
+    alist.append(b)
 
+alist = set(alist)
+lists = sorted(alist, key = lambda x : (len(x), x) )
 
-print(list)
+for i in lists:
+    print(i)
