@@ -27,7 +27,7 @@ for x in range(max(data), min(data)-1, -1):
             time += 1 * x-y
         elif x-y == 0:
             time += 0
-        else :
+        else:
             time += 2 * (y-x)
 
     if has >= 0:

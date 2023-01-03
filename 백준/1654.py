@@ -26,5 +26,3 @@ while True:
     if left > right:
         print(right)
         break
-
-
