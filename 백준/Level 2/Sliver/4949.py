@@ -1,7 +1,6 @@
 import sys
 input = sys.stdin.readline
 
-
 answer = []
 
 while True:
