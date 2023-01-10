@@ -24,3 +24,4 @@ def fibonacci(n):
 for x in range(num):
     print(fibonacci(int(input())))
     
+#  다시
