@@ -13,7 +13,7 @@ numberList = set()
 dfs = []
 bfs = []
 
-def dfsFunc(list, x):
+def dfsFunc(x):
     hadList = []
 
     for y in inputList:
@@ -21,14 +21,14 @@ def dfsFunc(list, x):
             hadList.append(y)
 
     if len(hadList) > 0:
-        hadList = sorted(hadList, key = lambda x : x[1])
+        hadList = sorted(hadList, key= lambda x: x[1])
         alpha = hadList[0]
 
         if alpha[1] not in dfs:
             dfs.append(alpha[1])
 
         inputList.remove(alpha)
-        dfsFunc(inputList, alpha[1])
+        dfsFunc(alpha[1])
 
     else:
         return
@@ -52,10 +52,12 @@ while True:
         if x not in dfs:
             dfs.append(x)
 
-        dfsFunc(inputList, x)
+        dfsFunc(x)
 
     if len(dfs) == len(numberList):
         break
+
+while True:
 
 
 print("dfs = ", dfs)
