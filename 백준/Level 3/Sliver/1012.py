@@ -41,10 +41,8 @@ def allow(a, b, leftData, rightData, inputData):
 
         else:
             break
-    
 
 for x in range(num):
-
     count = 0
     a, b, c = map(int,input().split())
 

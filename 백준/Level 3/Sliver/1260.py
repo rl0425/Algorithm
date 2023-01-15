@@ -1,64 +1,51 @@
-a,b,c = map(int,input().split())
+from collections import deque
 
-inputList = set()
+a,b,c = map(int, input().split())
+def dfs(graph, v):
+    visited = []
+    stack = [v]
+
+    while stack:
+        value = stack.pop()
+        if value not in visited:
+            visited.append(value)
+            if value in graph:
+                temp = list(set(graph[value]) - set(visited))
+                temp = sorted(temp, reverse=True)
+                stack += temp
+
+    return visited
+
+def bfs(graph, v):
+    visited = []
+    queue = deque([v])
+
+    while queue:
+        value = queue.popleft()
+
+        if value not in visited:
+            visited.append(value)
+            if value in graph:
+                temp = list(set(graph[value]) - set(visited))
+                temp = sorted(temp, reverse=False)
+                queue += temp
+
+    return visited
+
+graph = {}
 
 for x in range(b):
-    d, e = map(int, input().split())
-    inputList.add((d,e))
+    d, e = map(int,input().split())
 
-loopList = set()
-bottomList = set()
-numberList = set()
+    if d not in graph:
+        graph[d] = [e]
+    elif e not in graph[d]:
+        graph[d].append(e)
 
-dfs = []
-bfs = []
+    if e not in graph:
+        graph[e] = [d]
+    elif d not in graph[e]:
+        graph[e].append(d)
 
-def dfsFunc(x):
-    hadList = []
-
-    for y in inputList:
-        if y[0] == x and y[1] not in dfs:
-            hadList.append(y)
-
-    if len(hadList) > 0:
-        hadList = sorted(hadList, key= lambda x: x[1])
-        alpha = hadList[0]
-
-        if alpha[1] not in dfs:
-            dfs.append(alpha[1])
-
-        inputList.remove(alpha)
-        dfsFunc(alpha[1])
-
-    else:
-        return
-
-for x in inputList:
-    bottomList.add(x[1])
-
-for x in inputList:
-    if x[0] not in bottomList:
-        loopList.add(x[0])
-
-for x in inputList:
-    numberList.add(x[0])
-    numberList.add(x[1])
-
-
-dfs.append(c)
-
-while True:
-    for x in loopList:
-        if x not in dfs:
-            dfs.append(x)
-
-        dfsFunc(x)
-
-    if len(dfs) == len(numberList):
-        break
-
-while True:
-
-
-print("dfs = ", dfs)
-
+print(*dfs(graph,c))
+print(*bfs(graph,c))
