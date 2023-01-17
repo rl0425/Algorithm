@@ -20,7 +20,6 @@ def func(y, x, type):
             my_list[x] = 'B'
             inputData[y] = ''.join(my_list)
 
-
     elif type == "W":
         if inputData[y][x] == "B":
             count += 1
@@ -56,7 +55,6 @@ def func(y, x, type):
                         my_list = list(inputData[a + y])
                         my_list[b + x] = 'B'
                         inputData[a + y] = ''.join(my_list)
-
 
     answer.append(count)
 
