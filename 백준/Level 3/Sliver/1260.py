@@ -47,5 +47,7 @@ for x in range(b):
     elif d not in graph[e]:
         graph[e].append(d)
 
+print("graph = ", graph)
+
 print(*dfs(graph,c))
 print(*bfs(graph,c))
