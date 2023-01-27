@@ -17,8 +17,8 @@ def bfs(data, value, correct):
 
     nowData.append([dCount, value + "D"])
     nowData.append([sCount, value + "S"])
-    nowData.append([right, value + "L"])
-    nowData.append([left, value + "R"])
+    nowData.append([left, value + "L"])
+    nowData.append([right, value + "R"])
 
     flag[dCount] = 0
     flag[sCount] = 0
@@ -44,8 +44,8 @@ def bfs(data, value, correct):
 
             if correct == dCount:return data[1] + "D"
             if correct == sCount:return data[1] + "S"
-            if correct == right:return data[1] + "L"
-            if correct == left:return data[1] + "R"
+            if correct == left:return data[1] + "L"
+            if correct == right:return data[1] + "R"
 
             else:
                 if flag[dCount] == -1:
@@ -54,12 +54,12 @@ def bfs(data, value, correct):
                 if flag[sCount] == -1:
                     nowData.append([sCount, data[1] + "S"])
                     flag[sCount] = 0
-                if flag[right] == -1:
-                    nowData.append([right, data[1] + "L"])
-                    flag[right] = 0
                 if flag[left] == -1:
-                    nowData.append([left, data[1] + "R"])
+                    nowData.append([left, data[1] + "L"])
                     flag[left] = 0
+                if flag[right] == -1:
+                    nowData.append([right, data[1] + "R"])
+                    flag[right] = 0
 
 
 for x in range(a):
