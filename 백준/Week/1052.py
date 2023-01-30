@@ -35,4 +35,4 @@ while len(numList) > b:
 
 print(count)
 
-# 40~50분 소요
+#50
