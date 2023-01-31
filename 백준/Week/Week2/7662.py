@@ -50,9 +50,6 @@ for number in range(numInput):
                     if len(inputList) > 1:
                         inputList[minNum] = min(inputList)
 
-
-        # print("inputList = ", inputList)
-        # print("inputList = ", inputList[maxNum])
     if len(inputList) == 0:
         print("EMPTY")
     else:
