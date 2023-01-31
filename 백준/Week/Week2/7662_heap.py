@@ -1,30 +1,55 @@
-from heapq import heappush, heappop
+import heapq
 
-numInput = int(input())
+t = int(input())
 
-maxNum = "A"
-minNum = "B"
+for i in range(t):
+    k = int(input())
+    q1, q2 = [], []
+    visited = [False] * k
 
-for number in range(numInput):
-    num = int(input())
-    heap = []
+    for j in range(k):
+        com, num = input().split()
 
-    for x in range(num):
-        a, b = input().split()
+        if com == 'I':
+            heapq.heappush(q1, (int(num), j))
+            heapq.heappush(q2, (-int(num), j))
+            visited[j] = True
 
-        if a == "I":
-            heappush(heap, (0-int(b), b))
-        elif a == "D":
-            if b == str(1):
-                if len(heap) > 0:
-                    heappop(heap)[1]
-            elif b == str(-1):
-                if len(heap) > 0:`
-                    heappop(heap)[len(heap)-1]
+        else:
+            if num == '1':
+                print("visited= ", visited)
 
-        # print("heap = ", heap)
+                while q2 and not visited[q2[0][1]]:
+                    print("visited[q2[0][1]] = " , visited[q2[0][1]])
+                    print("q2 = " , q2)
+                    print("q1 = " , q1)
+                    heapq.heappop(q2)
+                if q2:
+                    visited[q2[0][1]] = False
+                    heapq.heappop(q2)
+            else:
+                while q1 and not visited[q1[0][1]]:
+                    print("q1 = ", q1)
+                    heapq.heappop(q1)
+                if q1:
+                    visited[q1[0][1]] = False
+                    heapq.heappop(q1)
 
-    if len(heap) == 0:
+        print("visitedddddddd= ", visited)
+        print("q2222 = ", q2)
+        print("q1111 = ", q1)
+
+    while q1 and not visited[q1[0][1]]:
+        heapq.heappop(q1)
+    while q2 and not visited[q2[0][1]]:
+        heapq.heappop(q2)
+
+    print("reqq2 = ", q2)
+    print("req1 = ", q1)
+
+    if not q1 or not q2:
         print("EMPTY")
     else:
-        print(heappop(heap)[1], heappop(heap)[len(heap)])
+        a = -q2[0][0]
+        b = q1[0][0]
+        print("%d %d" % (a, b))
