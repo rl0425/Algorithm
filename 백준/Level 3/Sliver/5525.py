@@ -20,7 +20,7 @@ while index < b-1:
 print(answer)
 
 
-#
+# 50점 답안
 # x = "IOI"
 # count = 0
 #

@@ -2,7 +2,7 @@ a, b = map(int, input().split())
 
 answer = 0
 
-chae = [False,False] + [True]*(b-1)
+chae = [False, False] + [True]*(b-1)
 primes=[]
 def soinsu(x):
     d = 2
