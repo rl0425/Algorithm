@@ -32,12 +32,12 @@ for x in range(b):
     c, d, e = map(int,input().split())
 
     if c not in graph:
-        graph[c] = {d:e}
+        graph[c] = {d: e}
     else:
         graph[c][d] = e
 
     if d not in graph:
-        graph[d] = {c:e}
+        graph[d] = {c: e}
     else:
         graph[d][c] = e
 
