@@ -1,4 +1,4 @@
-a,b = map(int, input().split())
+a,b,c = map(int, input().split())
 
 inputData = []
 
@@ -7,17 +7,17 @@ def BFS(array):
     newTomato = []
     num = 0
 
-    for x in range(b):
+    for x in range(b*c):
         for y in range(a):
             if array[x][y] == 1:
                 passTomato.append((x, y))
 
     while True:
         for tomato in passTomato:
-            if tomato[0]+1 < b and array[tomato[0]+1][tomato[1]] == 0:
+            if (tomato[0] % b)+1 < b and (tomato[0] % b) >= ((tomato[0]+1) % b) and array[tomato[0]+1][tomato[1]] == 0:
                 newTomato.append((tomato[0] + 1, tomato[1]))
                 array[tomato[0] + 1][tomato[1]] = 1
-            if tomato[0]-1 >= 0 and array[tomato[0]-1][tomato[1]] == 0:
+            if (tomato[0] % b)-1 >= 0 and (tomato[0] % b) <= ((tomato[0]-1) % b) and array[tomato[0]-1][tomato[1]] == 0:
                 newTomato.append((tomato[0] - 1, tomato[1]))
                 array[tomato[0] - 1][tomato[1]] = 1
             if tomato[1]+1 < a and array[tomato[0]][tomato[1]+1] == 0:
@@ -26,6 +26,12 @@ def BFS(array):
             if tomato[1]-1 >= 0 and array[tomato[0]][tomato[1]-1] == 0:
                 newTomato.append((tomato[0], tomato[1]-1))
                 array[tomato[0]][tomato[1] - 1] = 1
+            if tomato[0]+b < b*c and array[tomato[0]+b][tomato[1]] == 0:
+                newTomato.append((tomato[0] + b, tomato[1]))
+                array[tomato[0] + b][tomato[1]] = 1
+            if tomato[0]-b >= 0 and array[tomato[0] - b][tomato[1]] == 0:
+                newTomato.append((tomato[0] - b, tomato[1]))
+                array[tomato[0] - b][tomato[1]] = 1
 
         passTomato = list(newTomato)
         newTomato = []
@@ -38,8 +44,9 @@ def BFS(array):
         else:
             num += 1
 
-for x in range(b):
+for x in range(b*c):
     inputData.append(list(map(int,input().split())))
+
 
 print(BFS(inputData))
 
