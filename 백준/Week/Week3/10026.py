@@ -8,12 +8,12 @@ def bfs(array, type):
         for y in range(len(array)):
             if flag[x][y] != True:
                 if type == "normal":
-                    array = bfsFunc(x, y, array, array[x][y])
+                    bfsFunc(x, y, array, array[x][y])
                 if type == "sekyak":
                     if array[x][y] == "R" or array[x][y] == "G":
-                        array = bfsFunc(x, y, array, ["R", "G"])
+                        bfsFunc(x, y, array, ["R", "G"])
                     else:
-                        array = bfsFunc(x, y, array, array[x][y])
+                        bfsFunc(x, y, array, array[x][y])
                 count += 1
 
     return count
