@@ -11,4 +11,4 @@ for x in sorted:
 
 print(last)
 
-#  ?? 1분컷
+#  1분
