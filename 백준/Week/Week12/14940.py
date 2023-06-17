@@ -7,8 +7,6 @@ min = 0
 def func(x, y, count, prev):
     global inputList, min
 
-
-
     if x == goal[0] and y == goal[1]:
         if min < count:
             min = count
