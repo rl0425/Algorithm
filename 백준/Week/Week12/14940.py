@@ -12,9 +12,6 @@ answerList = [[0 for _ in range(a)] for _ in range(b)]
 goal = ""
 def func(list,x,y):
     queue = deque()
-
-    # print("x, y = ", x,y)
-
     if list[x][y] == 0:
         return 0;
 
