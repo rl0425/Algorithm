@@ -9,7 +9,6 @@ for _ in range(count):
 
     # 문자열 리스트
     case = input().split()
-
     if x >= 33:
         print(0)
 
