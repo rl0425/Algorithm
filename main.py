@@ -1,8 +1,3 @@
-# 자주 쓰인다 / 입력값 두개
-#a, b = map(int, input().split())
-#a = int(input())
-#print(a-b)
-
 # 여러개 입력
 
 # n = int(input())
@@ -73,11 +68,9 @@
 # print(a[1:5:2])
 # # 역순
 # print(a[::-1])
-#
 # # range도 범위지정이 가능하다, 세번째 인덱스는 몇 개를 뛰어넘을지
 # for x in range(0,100, 2):
 #     print(x)
-#
 # # dictionary , key/value
 # ab = dict()
 # abc = {}

@@ -15,13 +15,8 @@ for x in range(n):
 for x in range(m):
     a, b = map(int, input().split())
     snake[a] = b
-
 q = deque([1])
-
 while q:
-    print("q =", q)
-    print("board =", board)
-
     x = q.popleft()
 
     if x == 100:
