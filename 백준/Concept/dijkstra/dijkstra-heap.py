@@ -6,6 +6,8 @@ def dijkstra(graph, start):
     queue = []
     heapq.heappush(queue, [distances[start], start])  # 시작 노드부터 탐색 시작 하기 위함.
 
+    print("queue= ", queue)
+
     while queue:  # queue에 남아 있는 노드가 없으면 끝
         current_distance, current_destination = heapq.heappop(queue)  # 탐색 할 노드, 거리를 가져옴.
 
@@ -13,6 +15,10 @@ def dijkstra(graph, start):
             continue
 
         for new_destination, new_distance in graph[current_destination].items():
+            print("new_distance = ", new_distance)
+            print("new_destination = ", new_destination)
+
+
             distance = current_distance + new_distance  # 해당 노드를 거쳐 갈 때 거리
             if distance < distances[new_destination]:  # 알고 있는 거리 보다 작으면 갱신
                 distances[new_destination] = distance
