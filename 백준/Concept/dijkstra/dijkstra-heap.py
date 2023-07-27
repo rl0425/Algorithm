@@ -16,7 +16,7 @@ def dijkstra(graph, start):
 
         for new_destination, new_distance in graph[current_destination].items():
             print("new_distance = ", new_distance)
-            print("new_destination = ", new_destination)
+            print("new_destination = ", distances[new_destination])
 
 
             distance = current_distance + new_distance  # 해당 노드를 거쳐 갈 때 거리

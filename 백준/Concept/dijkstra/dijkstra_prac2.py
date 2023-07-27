@@ -1,31 +1,30 @@
 import heapq
 
 def dijkstra(graph, start):
-    # distance = [1e8] * 7
-    distance = {node: float('inf') for node in graph}  # start로 부터의 거리 값을 저장하기 위함
-    # distance = [1e8] * n
-    print("distance= ", distance)
+    dist = {node: float('inf') for node in graph}
+    dist[start] = 0
 
-    distance[start] = 0
     queue = []
-    heapq.heappush(queue, [distance[start], start])
+    heapq.heappush(queue, [dist[start], start])
 
     while queue:
-        curDistance, curDest = heapq.heappop(queue)
+        n_di, n_de = heapq.heappop(queue)
 
-        if distance[curDest] < curDistance:
-            continue
-
-        for newDist, newDest in graph[curDest].items():
-
-            print("newDist = ", newDist)
-            distances = curDistance + newDist
-
-            if distances < distance[newDest]:
-                distance[newDest] = distances
-                heapq.heappush(queue, [distances, newDest])
+        print("n_de = ", n_de)
+        print("n_de = ", graph[n_de])
 
 
+        if dist[n_de] < n_di:
+            continue;
+
+        for c_de, c_di in graph[n_de].items():
+
+            n_distance = n_di + c_di
+
+            if n_distance < dist[c_de]:
+                dist[c_de] = n_distance
+                heapq.heappush(queue, [n_distance, c_de])
+    return dist
 
 graph = {
     'A': {'B': 8, 'C': 1, 'D': 2},
