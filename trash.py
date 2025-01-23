@@ -1,19 +1,12 @@
 import sys
-N, r, c = map(int, sys.stdin.readline().split())
-count = 0
-tli = [1]
-for i in range(N):
-    tli.append(tli[i]*2)
 
-while N:
-    if r >= tli[N-1]:
-        r -= tli[N-1]
-        count += (tli[N] * tli[N-1])
-    if c >= tli[N-1]:
-        c -= tli[N-1]
-        count += (tli[N-1] ** 2)
-    N -= 1
+n = int(input())
+data = {i:0 for i in range(1, 10001)}
+for i in range(n):
+    trash = int(sys.stdin.readline())
+    data[trash] += 1
 
-print(count)
-
-
+for key, value in data.items(): #최대 10,000
+    if value > 0:
+        for v in range(value): #최대 10,000,000
+            sys.stdout.write(str(key) + "\n")  # 개행 추가
