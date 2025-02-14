@@ -18,8 +18,8 @@ def draw_stars(n):
             base.append(temp[i] + ' ' + temp[i])
 
         # 위쪽에 공백 추가
-        # for i in range(k):
-        #     base[i] = ' ' * k + base[i] + ' ' * k
+        for i in range(k):
+            base[i] = ' ' * k + base[i] + ' ' * k
         print("k = ", k)
         k *= 2
 
