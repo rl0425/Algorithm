@@ -12,9 +12,6 @@ def dfs(x, y, arr, visited):
                 dfs(x+dx, y+dy, arr, visited)
     return
 
-
-
-
 while True:
     w, h = map(int, input().split())
 
